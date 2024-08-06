@@ -1,0 +1,38 @@
+
+Real VNC for control pi from a remote device
+
+GPIOzero 
+
+sudo apt-get install git build-essential python-dev
+cd ~
+git clone https://github.com/adafruit/Adafruit_Python_MCP3008.git
+cd Adafruit_Python_MCP3008
+sudo python setup.py install
+
+sudo pip install adafruit-mcp3008
+
+Smbus
+
+sudo raspi-config
+lsmod | grep i2c
+sudo apt-get install i2c-tools
+i2cdetect -y 1
+sudo apt-get install python-smbus
+sudo apt-get install python3-smbus
+
+sudo python3 setup.py install 
+sudo python2 setup.py install 
+python ADC.py
+python I2CLCD1602.py
+
+
+This module provides the basic operation method of LCD1602, including class CharLCD1602. 
+Some member functions are described as follows:
+def init_lcd(self,addr=None, bl=1) : LDC1602 initializes the setting. When the addr is None, the I2C 
+address of the device will be automatically scanned. You can also specify the I2C address, bl=1 to enable 
+the backlight setting.
+def clear(self): clear the screen
+def send_command(self,comm): set the cursor position
+ def i2c_scan(self): scan the device I2C address
+def write(self,x, y, str): display contents
+More information can be viewed through opening LCD1602.py
